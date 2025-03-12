@@ -421,14 +421,14 @@ func (a *QueryAction) CustomAction(script *YAMLScript, symtab map[string]any, lo
 					switch err {
 					case ErrContextDeadLineExceeded:
 						logger.Warn(
-							fmt.Sprintf("internal method returns error: '%v'", err),
+							fmt.Sprintf("internal method returns error: '%v' (Type: %T)", err, err),
 							"collid", CollectorId(symtab, logger),
 							"script", ScriptName(symtab, logger),
 							"name", a.GetName(symtab, logger),
 							"timeout", fmt.Sprintf("%v", a.Query.Timeout))
 					default:
 						logger.Warn(
-							fmt.Sprintf("internal method returns error: '%v'", err),
+							fmt.Sprintf("internal method returns error: '%v' (Type: %T)", err, err),
 							"collid", CollectorId(symtab, logger),
 							"script", ScriptName(symtab, logger),
 							"name", a.GetName(symtab, logger))
